@@ -1,0 +1,126 @@
+.container {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-midnight);
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heading {
+    text-align: center;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-xl);
+}
+
+.timelineContainer {
+    position: relative;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 100px;
+    /* Space for panels */
+}
+
+/* Base horizontal line */
+.track {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.node {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bg-velvet);
+    border: 2px solid var(--color-cream);
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.active .dot,
+.node:hover .dot {
+    background: var(--color-gold);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    transform: scale(1.2);
+}
+
+.year {
+    position: absolute;
+    top: -30px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-cream);
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.active .year {
+    opacity: 1;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+/* Info Panel */
+.panel {
+    position: absolute;
+    top: 30px;
+    width: 250px;
+    background: rgba(26, 28, 41, 0.95);
+    /* Velvet with opacity */
+    border: 1px solid var(--color-gold-dim);
+    padding: var(--spacing-md);
+    text-align: center;
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+}
+
+/* Center panel relative to dot */
+.panel {
+    left: 50%;
+    margin-left: -125px;
+}
+
+.active .panel {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.panelTitle {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.panelDesc {
+    font-size: 0.9rem;
+    color: var(--color-cream);
+    line-height: 1.5;
+}
+
+/* Map specific styling (Placeholder) */
+.mapLine {
+    /* Could add an SVG path here for the flight arc */
+}

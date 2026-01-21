@@ -1,0 +1,124 @@
+.container {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--bg-midnight);
+    text-align: center;
+}
+
+.heading {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-gold);
+    opacity: 0.9;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--bg-velvet);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: var(--spacing-lg);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    /* Collapsed height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover {
+    border-color: var(--color-gold-dim);
+    background: linear-gradient(to bottom, var(--bg-velvet), #23263a);
+}
+
+.card.active {
+    height: 380px;
+    /* Expanded height */
+    border-color: var(--color-gold);
+    background: #151722;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cardContent {
+    width: 100%;
+}
+
+.cardTitle {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-sm);
+}
+
+.cardSubtitle {
+    display: block;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--color-gold-dim);
+    margin-bottom: var(--spacing-md);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.1s;
+    height: 0;
+    overflow: hidden;
+}
+
+.active .reveal {
+    opacity: 1;
+    transform: translateY(0);
+    height: auto;
+    margin-top: var(--spacing-md);
+}
+
+.description {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.divider {
+    width: 40px;
+    height: 1px;
+    background: var(--color-gold-dim);
+    margin: var(--spacing-md) auto;
+    opacity: 0.5;
+}
+
+.quote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-cream);
+    margin-bottom: var(--spacing-lg);
+}
+
+.enterBtn {
+    background: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    padding: 0.5rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.enterBtn:hover {
+    background: var(--color-gold);
+    color: var(--bg-midnight);
+}

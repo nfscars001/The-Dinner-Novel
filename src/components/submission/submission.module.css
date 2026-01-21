@@ -1,0 +1,136 @@
+.container {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--bg-velvet);
+    color: var(--color-cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading {
+    color: var(--color-gold);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.subtext {
+    text-align: center;
+    opacity: 0.8;
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-serif);
+    font-style: italic;
+}
+
+.form {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.row {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.input,
+.textarea {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-md);
+    color: var(--color-cream);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+.textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.consentGroup {
+    margin: var(--spacing-sm) 0;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.checkbox {
+    accent-color: var(--color-gold);
+    width: 16px;
+    height: 16px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-md);
+}
+
+.submitBtn {
+    background-color: var(--color-wine);
+    color: var(--color-cream);
+    border: none;
+    padding: 1rem 3rem;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.submitBtn:hover:not(:disabled) {
+    background-color: #8a3b45;
+}
+
+.submitBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.successMessage {
+    text-align: center;
+    padding: var(--spacing-xl);
+    border: 1px solid var(--color-gold);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.resetBtn {
+    background: transparent;
+    border: 1px solid var(--color-cream);
+    color: var(--color-cream);
+    padding: 0.5rem 1rem;
+    margin-top: var(--spacing-md);
+    cursor: pointer;
+}
+
+.error {
+    color: #ff6b6b;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+}
