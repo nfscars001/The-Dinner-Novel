@@ -1,49 +1,45 @@
--- Create table for newsletter
-create table if not exists newsletter_subscribers (
-  id uuid default gen_random_uuid() primary key,
-  email text not null unique,
-  source text default 'website',
-  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+-- The Dinner - Supabase Schema
+-- Run this in Supabase SQL Editor
+
+-- Newsletter subscribers table
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  email TEXT UNIQUE NOT NULL,
+  source TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- Create table for love stories
-create type story_status as enum ('pending', 'approved', 'rejected');
-
-create table if not exists love_stories (
-  id uuid default gen_random_uuid() primary key,
-  display_name text not null default 'Anonymous',
-  city text,
-  title text not null,
-  story text not null,
-  consent boolean not null default false,
-  email_optional text,
-  status story_status default 'pending',
-  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+-- Love stories table
+CREATE TABLE IF NOT EXISTS love_stories (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  display_name TEXT,
+  is_anonymous BOOLEAN DEFAULT FALSE,
+  city TEXT,
+  title TEXT NOT NULL,
+  story TEXT NOT NULL,
+  consent_social BOOLEAN DEFAULT FALSE,
+  email TEXT,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
+  created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- Enable RLS
-alter table newsletter_subscribers enable row level security;
-alter table love_stories enable row level security;
+-- Enable Row Level Security
+ALTER TABLE newsletter_subscribers ENABLE ROW LEVEL SECURITY;
+ALTER TABLE love_stories ENABLE ROW LEVEL SECURITY;
 
--- Policies for Newsletter
--- Allow anyone to insert (recaptcha recommended in prod)
-create policy "Allow anonymous insert for newsletter"
-  on newsletter_subscribers
-  for insert
-  to anon
-  with check (true);
+-- Public can subscribe to newsletter (insert only)
+CREATE POLICY "Public can subscribe" ON newsletter_subscribers
+  FOR INSERT WITH CHECK (true);
 
--- Policies for Love Stories
--- Allow anyone to insert
-create policy "Allow anonymous insert for stories"
-  on love_stories
-  for insert
-  to anon
-  with check (true);
+-- Public can submit stories (insert only)
+CREATE POLICY "Public can submit stories" ON love_stories
+  FOR INSERT WITH CHECK (true);
 
--- Allow anyone to read approved stories
-create policy "Allow anyone to read approved stories"
-  on love_stories
-  for select
-  to anon
-  using (status = 'approved');
+-- Public can read only approved stories
+CREATE POLICY "Public can read approved stories" ON love_stories
+  FOR SELECT USING (status = 'approved');
+
+-- Create indexes for better performance
+CREATE INDEX IF NOT EXISTS idx_stories_status ON love_stories(status);
+CREATE INDEX IF NOT EXISTS idx_stories_created_at ON love_stories(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_newsletter_email ON newsletter_subscribers(email);

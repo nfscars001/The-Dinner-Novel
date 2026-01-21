@@ -1,20 +1,19 @@
-import Hero from "@/components/hero/Hero";
-import ChoosePath from "@/components/interactive/ChoosePath";
-import Timeline from "@/components/timeline/Timeline";
-import SubmissionForm from "@/components/submission/SubmissionForm";
-import CommunityWall from "@/components/community/CommunityWall";
-import Footer from "@/components/ui/Footer";
-import styles from "./page.module.css";
+import Hero from '@/components/hero/Hero';
+import ChooseYourPath from '@/components/interactive/ChooseYourPath';
+import Timeline from '@/components/timeline/Timeline';
+import StoryForm from '@/components/submission/StoryForm';
+import CommunityWall from '@/components/community/CommunityWall';
+import Footer from '@/components/ui/Footer';
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <Hero />
-      <ChoosePath />
-      <Timeline />
-      <SubmissionForm />
-      <CommunityWall />
-      <Footer />
-    </main>
-  );
+    return (
+        <main>
+            <Hero />
+            <ChooseYourPath />
+            <Timeline />
+            <CommunityWall />
+            <StoryForm />
+            <Footer />
+        </main>
+    );
 }

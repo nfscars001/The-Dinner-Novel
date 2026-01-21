@@ -1,0 +1,245 @@
+.section {
+    padding: var(--space-section) 0;
+    background: linear-gradient(180deg, var(--background-primary) 0%, var(--background-secondary) 100%);
+    position: relative;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--warm-amber), transparent);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+/* ===========================
+   Header
+   =========================== */
+.header {
+    text-align: center;
+    margin-bottom: var(--space-4xl);
+}
+
+.preTitle {
+    font-family: var(--font-accent);
+    font-size: var(--text-sm);
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--warm-amber);
+    opacity: 0.8;
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: var(--text-4xl);
+    font-weight: 500;
+    color: var(--champagne-gold);
+    margin-bottom: var(--space-md);
+}
+
+.subtitle {
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* ===========================
+   Paths Grid
+   =========================== */
+.pathsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+/* ===========================
+   Path Card
+   =========================== */
+.pathCard {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    overflow: hidden;
+    animation: pathFadeIn 0.6s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+    opacity: 0;
+}
+
+@keyframes pathFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pathCard:hover {
+    border-color: var(--border-glow);
+    background: var(--fog-mist-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.pathCard.expanded {
+    border-color: var(--warm-amber);
+    box-shadow: var(--shadow-glow-strong);
+}
+
+/* ===========================
+   Card Header (Always Visible)
+   =========================== */
+.cardHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-xl);
+    min-height: 160px;
+    justify-content: space-between;
+}
+
+.pathTitles {
+    width: 100%;
+}
+
+.pathTitle {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    font-weight: 500;
+    color: var(--champagne-gold);
+    margin-bottom: var(--space-xs);
+}
+
+.pathSubtitle {
+    font-family: var(--font-accent);
+    font-size: var(--text-sm);
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* Removed icon styles */
+
+.expandIcon {
+    font-size: var(--text-xl);
+    color: var(--warm-amber);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.05);
+    transition: all var(--transition-fast);
+    align-self: flex-end;
+}
+
+.pathCard:hover .expandIcon {
+    background: var(--warm-amber);
+    color: var(--background-primary);
+}
+
+/* ===========================
+   Card Content (Expandable)
+   =========================== */
+.cardContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-slow), padding var(--transition-slow);
+    padding: 0 var(--space-xl);
+}
+
+.pathCard.expanded .cardContent {
+    max-height: 400px;
+    padding: 0 var(--space-xl) var(--space-xl);
+}
+
+.teaser {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+}
+
+.quote {
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--warm-amber);
+    padding-left: var(--space-lg);
+    border-left: 2px solid var(--burgundy-wine);
+    margin: 0;
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 1024px) {
+    .pathsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    .pathsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .cardHeader {
+        padding: var(--space-lg);
+        min-height: auto;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .pathTitle {
+        font-size: var(--text-lg);
+    }
+
+    .expandIcon {
+        align-self: center;
+    }
+
+    .pathCard.expanded .cardContent {
+        padding: 0 var(--space-lg) var(--space-lg);
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .pathCard {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
+    .cardContent {
+        transition: none;
+    }
+}

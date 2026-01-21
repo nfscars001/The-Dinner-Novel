@@ -1,28 +1,68 @@
-import styles from './hero.module.css';
+'use client';
+
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
+import styles from './Hero.module.css';
+
+function HeroContent() {
+    const searchParams = useSearchParams();
+    const source = searchParams.get('source');
+    const isLaGloria = source === 'lagloria';
+
+    return (
+        <>
+            {isLaGloria && (
+                <div className="welcome-banner">
+                    ✦ Welcome to The Dinner at La Gloria ✦
+                </div>
+            )}
+
+            <section className={styles.hero}>
+                {/* Background Image Layer */}
+                <div className={styles.imageBackground}>
+                    <div className={styles.overlay}></div>
+                </div>
+
+                {/* Content */}
+                <div className={styles.content}>
+                    <div className={styles.titleWrapper}>
+                        <span className={styles.preTitle}>A Romance Novel</span>
+                        <h1 className={styles.title}>The Dinner</h1>
+                        <p className={styles.tagline}>
+                            A love story served between two cities.
+                        </p>
+                    </div>
+
+                    <div className={styles.ctas}>
+                        <a href="#choose-your-path" className={`btn-primary ${styles.ctaPrimary}`}>
+                            Enter the Dinner
+                        </a>
+                        <a href="#newsletter" className={`btn-secondary ${styles.ctaSecondary}`}>
+                            Get Love Letters
+                        </a>
+                    </div>
+
+                    <div className={styles.cities}>
+                        <span className={styles.city}>San Francisco</span>
+                        <span className={styles.cityDivider}>✦</span>
+                        <span className={styles.city}>Toronto</span>
+                    </div>
+                </div>
+
+                {/* Scroll Indicator */}
+                <div className={styles.scrollIndicator}>
+                    <span>Scroll to begin</span>
+                    <div className={styles.scrollLine}></div>
+                </div>
+            </section>
+        </>
+    );
+}
 
 export default function Hero() {
     return (
-        <section className={styles.hero}>
-            <div className={styles.skyline}>
-                {/* Placeholder for skyline implementation - can be SVG or Image */}
-                <div className={styles.sf}></div>
-                <div className={styles.toronto}></div>
-            </div>
-
-            <div className={styles.overlay}>
-                <div className={styles.fog}></div>
-                <div className={styles.sparkles}></div>
-            </div>
-
-            <div className={styles.content}>
-                <h1 className={styles.title}>The Dinner</h1>
-                <p className={styles.tagline}>A love story served between two cities.</p>
-
-                <div className={styles.actions}>
-                    <button className={`${styles.btn} ${styles.btnPrimary}`}>Enter the Dinner</button>
-                    <button className={`${styles.btn} ${styles.btnSecondary}`}>Get Love Letters</button>
-                </div>
-            </div>
-        </section>
+        <Suspense fallback={<div className={styles.hero}></div>}>
+            <HeroContent />
+        </Suspense>
     );
 }

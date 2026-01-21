@@ -1,126 +1,313 @@
+.section {
+    padding: var(--space-section) 0;
+    padding-bottom: calc(var(--space-section) + 200px);
+    background: var(--background-primary);
+    position: relative;
+}
+
 .container {
-    padding: var(--spacing-xl) 0;
-    background-color: var(--bg-midnight);
-    position: relative;
-    overflow: hidden;
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
 }
 
-.heading {
+/* ===========================
+   Header
+   =========================== */
+.header {
     text-align: center;
-    color: var(--color-gold);
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--space-4xl);
 }
 
-.timelineContainer {
-    position: relative;
-    max-width: var(--max-width);
+.preTitle {
+    font-family: var(--font-accent);
+    font-size: var(--text-sm);
+    font-style: italic;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--warm-amber);
+    opacity: 0.8;
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: var(--text-4xl);
+    font-weight: 500;
+    color: var(--champagne-gold);
+    margin-bottom: var(--space-md);
+}
+
+.subtitle {
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--text-secondary);
+    max-width: 500px;
     margin: 0 auto;
-    width: 100%;
-    padding-bottom: 100px;
-    /* Space for panels */
 }
 
-/* Base horizontal line */
-.track {
-    position: relative;
-    width: 90%;
-    margin: 0 auto;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.1);
+/* ===========================
+   Map Container
+   =========================== */
+.mapContainer {
+    margin-bottom: var(--space-4xl);
 }
 
-.node {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
+.cities {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--space-sm);
+}
+
+.cityLabel {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: var(--space-xs);
 }
 
-.dot {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: var(--bg-velvet);
-    border: 2px solid var(--color-cream);
-    transition: all 0.3s ease;
-    z-index: 2;
-}
-
-.active .dot,
-.node:hover .dot {
-    background: var(--color-gold);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-    transform: scale(1.2);
-}
-
-.year {
-    position: absolute;
-    top: -30px;
+.cityName {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
-    color: var(--color-cream);
-    opacity: 0.6;
-    transition: opacity 0.3s;
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
 }
 
-.active .year {
-    opacity: 1;
-    color: var(--color-gold);
-    font-weight: bold;
+.cityFlag {
+    font-size: var(--text-lg);
 }
 
-/* Info Panel */
-.panel {
+.flightPath {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+}
+
+.pathLine {
+    animation: dashMove 3s linear infinite;
+}
+
+@keyframes dashMove {
+    from {
+        stroke-dashoffset: 0;
+    }
+
+    to {
+        stroke-dashoffset: 24;
+    }
+}
+
+.planeIcon {
+    font-size: 20px;
+    fill: var(--champagne-gold);
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* ===========================
+   Timeline Track
+   =========================== */
+.timelineTrack {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: var(--space-xl) 0;
+    padding-bottom: 220px;
+}
+
+.trackLine {
     position: absolute;
-    top: 30px;
-    width: 250px;
-    background: rgba(26, 28, 41, 0.95);
-    /* Velvet with opacity */
-    border: 1px solid var(--color-gold-dim);
-    padding: var(--spacing-md);
-    text-align: center;
-    border-radius: 4px;
+    top: calc(var(--space-xl) + 12px);
+    left: 5%;
+    right: 5%;
+    height: 2px;
+    background: linear-gradient(90deg,
+            var(--warm-amber) 0%,
+            var(--burgundy-wine) 50%,
+            var(--warm-amber) 100%);
+    opacity: 0.4;
+}
+
+/* ===========================
+   Nodes
+   =========================== */
+.nodeWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.nodeYear {
+    font-family: var(--font-accent);
+    font-size: var(--text-sm);
+    font-style: italic;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+}
+
+.nodeWrapper:hover .nodeYear,
+.nodeWrapper.active .nodeYear {
+    color: var(--warm-amber);
+}
+
+.nodeDot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--background-secondary);
+    border: 2px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
+}
+
+.nodeWrapper:hover .nodeDot,
+.nodeWrapper.active .nodeDot {
+    border-color: var(--warm-amber);
+    box-shadow: 0 0 20px rgba(212, 165, 116, 0.4);
+}
+
+.nodeInner {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--warm-amber);
     opacity: 0;
-    transform: translateY(10px);
-    pointer-events: none;
-    transition: all 0.3s ease;
-    z-index: 10;
-    backdrop-filter: blur(5px);
+    transition: opacity var(--transition-fast);
 }
 
-/* Center panel relative to dot */
-.panel {
-    left: 50%;
-    margin-left: -125px;
-}
-
-.active .panel {
+.nodeWrapper:hover .nodeInner,
+.nodeWrapper.active .nodeInner {
     opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
 }
 
-.panelTitle {
+/* ===========================
+   Node Panel
+   =========================== */
+.nodePanel {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    margin-top: var(--space-lg);
+    padding: var(--space-lg);
+    background: rgba(28, 35, 51, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    animation: nodeFadeIn 0.3s ease-out;
+    z-index: 10;
+}
+
+@keyframes nodeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.nodeTitle {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
-    color: var(--color-gold);
-    margin-bottom: var(--spacing-sm);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--champagne-gold);
+    margin-bottom: var(--space-sm);
 }
 
-.panelDesc {
-    font-size: 0.9rem;
-    color: var(--color-cream);
-    line-height: 1.5;
+.nodeTeaser {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
 }
 
-/* Map specific styling (Placeholder) */
-.mapLine {
-    /* Could add an SVG path here for the flight arc */
+.nodeLocation {
+    font-family: var(--font-accent);
+    font-size: var(--text-xs);
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    .timelineTrack {
+        overflow-x: auto;
+        padding-bottom: var(--space-2xl);
+        gap: var(--space-lg);
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .timelineTrack::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nodeWrapper {
+        min-width: 80px;
+        flex: none;
+    }
+
+    .trackLine {
+        left: 0;
+        right: 0;
+        width: 400%;
+    }
+
+    .nodePanel {
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: none;
+        width: 100%;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        margin-top: 0;
+        padding: var(--space-xl);
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .pathLine {
+        animation: none;
+    }
+
+    .planeIcon {
+        animation: none;
+    }
+
+    .nodePanel {
+        animation: none;
+    }
 }
