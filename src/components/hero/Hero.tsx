@@ -13,7 +13,7 @@ function HeroContent() {
         <>
             {isLaGloria && (
                 <div className="welcome-banner">
-                    ✦ Welcome to The Dinner at La Gloria ✦
+                    ✦ Welcome to The Dinner ✦
                 </div>
             )}
 

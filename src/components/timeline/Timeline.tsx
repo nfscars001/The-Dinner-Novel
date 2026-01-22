@@ -12,27 +12,27 @@ interface TimelineNode {
 
 const timelineNodes: TimelineNode[] = [
     {
-        year: '2020',
-        title: 'The First Meeting',
-        teaser: "A chance encounter at a restaurant that neither expected. San Francisco's fog rolled in that night, but inside, everything was warm. A shared dessert. A stolen glance. The beginning of something neither could name.",
+        year: '2020 - Departure',
+        title: 'The Suitcase of Yes',
+        teaser: "San Francisco glows behind him like a memory that hasn’t learned to let go. Jasper boards a flight for love—hoping the unknown will be kind.",
         location: 'sf',
     },
     {
-        year: '2023',
-        title: 'The Distance',
+        year: '2023 — Betrayal & Downward Spiral',
+        title: 'When the Glass Cracks',
         teaser: "Three years of silence. Three years of wondering. Toronto winters couldn't freeze the memory. San Francisco summers couldn't burn it away. Both moved on. Neither forgot.",
-        location: 'between',
-    },
-    {
-        year: '2024',
-        title: 'The Letter',
-        teaser: "An invitation arrives. A dinner party. A return to where it all began. The handwriting is unfamiliar, but the pull is unmistakable. Sometimes, love sends messengers.",
         location: 'toronto',
     },
     {
-        year: '2029',
-        title: 'Full Circle',
-        teaser: "Nine years from that first dinner. The table is set. The candles are lit. Two cities have shaped them. Now, only one question remains: Was it worth the wait?",
+        year: '2024 — The Meeting',
+        title: 'Light Finds the Canvas',
+        teaser: "In a room full of art and polite smiles, Jasper meets Annalie—and something in him exhales for the first time in years.",
+        location: 'toronto',
+    },
+    {
+        year: '2029 — Full Circle',
+        title: 'Between Departures',
+        teaser: "An airport bistro. A half-finished drink. A sketchbook page waiting for a first line. Jasper listens to the world move around him.",
         location: 'sf',
     },
 ];
@@ -110,7 +110,6 @@ export default function Timeline() {
                                     <span className={styles.nodeLocation}>
                                         {node.location === 'sf' && '📍 San Francisco'}
                                         {node.location === 'toronto' && '📍 Toronto'}
-                                        {node.location === 'between' && '📍 The Distance'}
                                     </span>
                                 </div>
                             )}
