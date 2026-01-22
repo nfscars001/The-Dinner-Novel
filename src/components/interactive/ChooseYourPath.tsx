@@ -5,40 +5,60 @@ import styles from './ChooseYourPath.module.css';
 
 interface PathData {
     id: string;
+    overline: string;
     title: string;
-    subtitle: string;
+    tagline: string;
     teaser: string;
+    revealHeader: string;
+    revealCopy: string;
     quote: string;
+    ctaText: string;
 }
 
 const paths: PathData[] = [
     {
         id: 'jasper',
-        title: "Jasper's Journey",
-        subtitle: 'The Chef',
-        teaser: "From the kitchens of San Francisco to the restaurants of Toronto, one man carries a secret ingredient: the memory of a love he left behind. When a chance encounter brings the past rushing back, Jasper must choose between the life he's built and the love he never forgot.",
-        quote: '"Every dish I create is a letter I never sent."',
+        overline: 'Follow Jasper’s Journey',
+        title: 'Jasper’s Table',
+        tagline: 'A man learns how to start over without losing himself.',
+        teaser: 'From San Francisco to Toronto, Jasper carries a sketchbook full of quiet hopes—and the kind of heartbreak that doesn’t make noise until it does.',
+        revealHeader: 'The Seat He Took',
+        revealCopy: 'Jasper is the kind of person who notices the small things: the way light clings to glass, the way a city sounds when you’re alone in it. He chose love like a leap, and later had to learn how to land.',
+        quote: '“Some lives are built twice—the first time by dreams, the second time by survival.”',
+        ctaText: 'Enter Jasper’s Path',
     },
     {
         id: 'annalie',
-        title: "Annalie's Melody",
-        subtitle: 'The Artist',
-        teaser: "Music was her escape, but love became her symphony. Annalie's art speaks of longing, of distance, of a connection that transcends cities and time. When she receives an invitation to a mysterious dinner, her world shifts in ways she never imagined.",
-        quote: '"I paint with colors only he could see."',
+        overline: 'Hear Annalie’s Melody',
+        title: 'Annalie’s Corner',
+        tagline: 'Warmth, wit, and a gentle kind of courage.',
+        teaser: 'She doesn’t arrive like a rescue. She arrives like a rhythm—steady, bright, and strangely familiar.',
+        revealHeader: 'A Different Kind of Light',
+        revealCopy: 'Annalie sees what most people skip past: the hidden effort, the tender truth, the bravery in trying again. Her world is built from details—music, laughter, and the quiet choice to stay soft in a hard time.',
+        quote: '“Some people don’t save you. They remind you you’re worth saving.”',
+        ctaText: 'Enter Annalie’s Path',
     },
     {
         id: 'cities',
-        title: 'The City Between Us',
-        subtitle: 'San Francisco ↔ Toronto',
-        teaser: "Two cities. Two lives. One undeniable connection. Separated by 2,500 miles but bound by something deeper, their story unfolds across time zones and seasons—a tale of parallel lives slowly converging.",
-        quote: '"Distance measures geography, not hearts."',
+        overline: 'The City Between Us',
+        title: 'The City Between',
+        tagline: 'Two skylines. One story.',
+        teaser: 'San Francisco carries the glow of beginnings. Toronto holds the weather of becoming. Somewhere between them, a heart keeps traveling.',
+        revealHeader: 'A Map Made of Moments',
+        revealCopy: 'This story doesn’t belong to one place. It belongs to departures, late dinners, gallery lights, and the strange magic of being new again. Follow the trail of ordinary scenes that turn precious when you look back.',
+        quote: '“Distance isn’t measured in miles. It’s measured in what you’re willing to cross.”',
+        ctaText: 'Trace the Journey',
     },
     {
         id: 'fullcircle',
-        title: 'Full Circle',
-        subtitle: '2029',
-        teaser: "Every story has its final chapter. Nine years after their first meeting, the table is set once more. What began at a dinner must end at a dinner. But how it ends... that's the question that haunts them both.",
-        quote: '"We always find our way back to this table."',
+        overline: 'Full Circle (2029)',
+        title: 'Between Departures (2029)',
+        tagline: 'A quiet scene with sharp edges of memory.',
+        teaser: 'An airport bistro. Warm light. A glass cooling in the hand. The world moves past like soft cinema.',
+        revealHeader: 'The Night Returns',
+        revealCopy: 'Jasper watches the choreography of strangers—laughs, goodbyes, small mercies. He sketches. He breathes. He lets the moment be ordinary… and somehow, sacred.',
+        quote: '“One day, the smallest moments become the ones that hold you together.”',
+        ctaText: 'Step Into 2029',
     },
 ];
 
@@ -70,8 +90,9 @@ export default function ChooseYourPath() {
                         >
                             <div className={styles.cardHeader}>
                                 <div className={styles.pathTitles}>
+                                    <span className={styles.pathOverline}>{path.overline}</span>
                                     <h3 className={styles.pathTitle}>{path.title}</h3>
-                                    <span className={styles.pathSubtitle}>{path.subtitle}</span>
+                                    <p className={styles.pathTagline}>{path.tagline}</p>
                                 </div>
                                 <span className={styles.expandIcon}>
                                     {expandedPath === path.id ? '−' : '+'}
@@ -79,8 +100,19 @@ export default function ChooseYourPath() {
                             </div>
 
                             <div className={styles.cardContent}>
-                                <p className={styles.teaser}>{path.teaser}</p>
-                                <blockquote className={styles.quote}>{path.quote}</blockquote>
+                                <div className={styles.teaserWrapper}>
+                                    <p className={styles.teaser}>{path.teaser}</p>
+                                </div>
+
+                                <div className={styles.revealSection}>
+                                    <h4 className={styles.revealHeader}>{path.revealHeader}</h4>
+                                    <p className={styles.revealCopy}>{path.revealCopy}</p>
+                                    <blockquote className={styles.quote}>{path.quote}</blockquote>
+                                    <button className={styles.ctaButton}>
+                                        {path.ctaText}
+                                        <span className={styles.ctaArrow}>→</span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}
