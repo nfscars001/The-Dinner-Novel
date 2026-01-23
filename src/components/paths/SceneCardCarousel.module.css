@@ -1,0 +1,53 @@
+.carouselContainer {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl) 0;
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--champagne-gold);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    z-index: 10;
+}
+
+.navButton:hover {
+    background: var(--warm-amber);
+    color: var(--midnight-navy);
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Mobile specific: Hide arrows, allow swipe (though implementation will assume basic render for now) */
+@media (max-width: 768px) {
+    .navButton {
+        display: none;
+    }
+}

@@ -197,7 +197,7 @@
 }
 
 .pathCard.expanded .cardContent {
-    max-height: 800px;
+    max-height: 2000px;
     padding: 0 var(--space-xl) var(--space-xl);
     opacity: 1;
 }

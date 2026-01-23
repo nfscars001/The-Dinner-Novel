@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import styles from './ChooseYourPath.module.css';
 
 interface PathData {
@@ -50,7 +51,7 @@ const paths: PathData[] = [
         ctaText: 'Trace the Journey',
     },
     {
-        id: 'fullcircle',
+        id: '2029',
         overline: 'Full Circle',
         title: 'Between Departures',
         tagline: 'A quiet scene with sharp edges of memory.',
@@ -108,10 +109,10 @@ export default function ChooseYourPath() {
                                     <h4 className={styles.revealHeader}>{path.revealHeader}</h4>
                                     <p className={styles.revealCopy}>{path.revealCopy}</p>
                                     <blockquote className={styles.quote}>{path.quote}</blockquote>
-                                    <button className={styles.ctaButton}>
+                                    <Link href={`/path/${path.id}`} className={styles.ctaButton}>
                                         {path.ctaText}
                                         <span className={styles.ctaArrow}>→</span>
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

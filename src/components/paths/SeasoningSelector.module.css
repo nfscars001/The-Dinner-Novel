@@ -1,0 +1,60 @@
+.container {
+    margin: var(--space-xl) 0;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.label {
+    display: block;
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    color: var(--champagne-gold);
+    margin-bottom: var(--space-md);
+    font-style: italic;
+}
+
+.options {
+    display: inline-flex;
+    gap: var(--space-sm);
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--space-xs);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-subtle);
+    backdrop-filter: blur(10px);
+}
+
+.optionBtn {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    transition: all var(--transition-base);
+    border: 1px solid transparent;
+}
+
+.optionBtn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.active {
+    background: var(--background-secondary);
+    color: var(--warm-amber);
+    border-color: var(--border-glow);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
