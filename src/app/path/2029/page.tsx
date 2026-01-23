@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import PathHero from '@/components/paths/PathHero';
 import SceneCardCarousel from '@/components/paths/SceneCardCarousel';
@@ -22,6 +22,7 @@ function Content2029() {
     const [seasoning, setSeasoning] = useState<NightMood>('Nostalgic');
     const [currentCard, setCurrentCard] = useState(0);
     const [isShareOpen, setIsShareOpen] = useState(false);
+    const audioRef = useRef<HTMLAudioElement>(null);
 
     // Analytics (mock)
     useEffect(() => {
@@ -43,6 +44,15 @@ function Content2029() {
 
     const handleAmbientToggle = (isActive: boolean) => {
         console.log('Event: ambient_mode_selected', { isActive });
+        if (audioRef.current) {
+            if (isActive) {
+                audioRef.current.play().catch(err => {
+                    console.error('Failed to play ambient sound:', err);
+                });
+            } else {
+                audioRef.current.pause();
+            }
+        }
     };
 
     // Dynamic content based on seasoning
@@ -148,6 +158,13 @@ function Content2029() {
                 isOpen={isShareOpen}
                 onClose={() => setIsShareOpen(false)}
                 title="Share 2029"
+            />
+
+            <audio
+                ref={audioRef}
+                src="/music/airport-34598.mp3"
+                loop
+                preload="auto"
             />
         </div>
     );
