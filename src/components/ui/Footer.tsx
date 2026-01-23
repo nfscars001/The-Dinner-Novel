@@ -76,7 +76,7 @@ export default function Footer() {
                         <span className={styles.socialLabel}>Follow the Story</span>
                         <div className={styles.socialLinks}>
                             <a
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/the_dinner_novel?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.socialLink}

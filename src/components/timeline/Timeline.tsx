@@ -6,32 +6,37 @@ import styles from './Timeline.module.css';
 interface TimelineNode {
     year: string;
     title: string;
+    tagline: string;
     teaser: string;
     location: 'sf' | 'toronto' | 'between';
 }
 
 const timelineNodes: TimelineNode[] = [
     {
-        year: '2020 - Departure',
-        title: 'The Suitcase of Yes',
+        year: '2020',
+        title: 'Departure',
+        tagline: 'A suitcase say yes',
         teaser: "San Francisco glows behind him like a memory that hasn’t learned to let go. Jasper boards a flight for love—hoping the unknown will be kind.",
         location: 'sf',
     },
     {
-        year: '2023 — Betrayal & Downward Spiral',
-        title: 'When the Glass Cracks',
+        year: '2023',
+        title: 'Betrayal & Downward Spiral',
+        tagline: 'When the Glass Cracks',
         teaser: "Three years of silence. Three years of wondering. Toronto winters couldn't freeze the memory. San Francisco summers couldn't burn it away. Both moved on. Neither forgot.",
         location: 'toronto',
     },
     {
-        year: '2024 — The Meeting',
-        title: 'Light Finds the Canvas',
+        year: '2024',
+        title: 'The Meeting',
+        tagline: 'Light Finds the Canvas',
         teaser: "In a room full of art and polite smiles, Jasper meets Annalie—and something in him exhales for the first time in years.",
         location: 'toronto',
     },
     {
-        year: '2029 — Full Circle',
-        title: 'Between Departures',
+        year: '2029',
+        title: 'Full Circle',
+        tagline: 'Between Departures',
         teaser: "An airport bistro. A half-finished drink. A sketchbook page waiting for a first line. Jasper listens to the world move around him.",
         location: 'sf',
     },
@@ -97,7 +102,10 @@ export default function Timeline() {
                             onClick={() => setActiveNode(activeNode === node.year ? null : node.year)}
                         >
                             <div className={styles.node}>
-                                <span className={styles.nodeYear}>{node.year}</span>
+                                <div className={styles.nodeLabel}>
+                                    <span className={styles.nodeYear}>{node.year}</span>
+                                    <span className={styles.nodeLabelTitle}>{node.title}</span>
+                                </div>
                                 <div className={styles.nodeDot}>
                                     <div className={styles.nodeInner}></div>
                                 </div>
@@ -105,7 +113,7 @@ export default function Timeline() {
 
                             {activeNode === node.year && (
                                 <div className={styles.nodePanel}>
-                                    <h4 className={styles.nodeTitle}>{node.title}</h4>
+                                    <h4 className={styles.nodeTagline}>{node.tagline}</h4>
                                     <p className={styles.nodeTeaser}>{node.teaser}</p>
                                     <span className={styles.nodeLocation}>
                                         {node.location === 'sf' && '📍 San Francisco'}

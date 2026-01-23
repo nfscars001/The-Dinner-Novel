@@ -51,8 +51,8 @@ const paths: PathData[] = [
     },
     {
         id: 'fullcircle',
-        overline: 'Full Circle (2029)',
-        title: 'Between Departures (2029)',
+        overline: 'Full Circle',
+        title: 'Between Departures',
         tagline: 'A quiet scene with sharp edges of memory.',
         teaser: 'An airport bistro. Warm light. A glass cooling in the hand. The world moves past like soft cinema.',
         revealHeader: 'The Night Returns',

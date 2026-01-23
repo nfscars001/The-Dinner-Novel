@@ -52,7 +52,8 @@
    Map Container
    =========================== */
 .mapContainer {
-    margin-bottom: var(--space-4xl);
+    margin-bottom: var(--space-xl);
+    /* Reduced margin to bring nodes closer */
 }
 
 .cities {
@@ -114,15 +115,15 @@
     justify-content: space-between;
     position: relative;
     padding: var(--space-xl) 0;
-    padding-top: 100px;
-    /* Base padding */
+    padding-top: var(--space-lg);
+    /* Reduced top padding */
     padding-bottom: 220px;
 }
 
 .trackLine {
     position: absolute;
-    top: calc(100px + 80px + 16px + 12px);
-    /* Padding (100) + Label Height (80) + Margin (16) + Half Dot (12) */
+    top: calc(var(--space-lg) + 100px + 16px + 12px);
+    /* Padding (32) + Label Height (100) + Margin (16) + Half Dot (12) */
     left: 5%;
     right: 5%;
     height: 2px;
@@ -153,26 +154,44 @@
     gap: 0;
 }
 
-.nodeYear {
-    font-family: var(--font-accent);
-    font-size: var(--text-lg);
-    line-height: 1.2;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    color: var(--text-muted);
-    transition: color var(--transition-fast);
-    height: 80px;
-    /* Area for text to keep dots aligned below */
+.nodeLabel {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    height: 100px;
+    /* Increased height for year + title */
     margin-bottom: var(--space-md);
 }
 
+.nodeYear {
+    font-family: var(--font-accent);
+    font-size: var(--text-base);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+}
+
+.nodeLabelTitle {
+    font-family: var(--font-serif);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--champagne-gold);
+    max-width: 120px;
+    margin-top: var(--space-xs);
+    opacity: 0.8;
+    transition: all var(--transition-fast);
+}
+
 .nodeWrapper:hover .nodeYear,
-.nodeWrapper.active .nodeYear {
+.nodeWrapper.active .nodeYear,
+.nodeWrapper:hover .nodeLabelTitle,
+.nodeWrapper.active .nodeLabelTitle {
     color: var(--warm-amber);
+    opacity: 1;
 }
 
 .nodeDot {
@@ -239,12 +258,13 @@
     }
 }
 
-.nodeTitle {
+.nodeTagline {
     font-family: var(--font-serif);
     font-size: var(--text-lg);
     font-weight: 500;
-    color: var(--champagne-gold);
+    color: var(--warm-amber);
     margin-bottom: var(--space-sm);
+    letter-spacing: 0.02em;
 }
 
 .nodeTeaser {
