@@ -26,10 +26,13 @@ function HeroContent() {
                 {/* Content */}
                 <div className={styles.content}>
                     <div className={styles.titleWrapper}>
-                        <span className={styles.preTitle}>A Romance Novel</span>
+                        <span className={styles.preTitle}>A Romance Novel based on true stories</span>
                         <h1 className={styles.title}>The Dinner</h1>
                         <p className={styles.tagline}>
                             A love story served between two cities.
+                        </p>
+                        <p className={styles.releaseDate}>
+                            Coming in 2026 May
                         </p>
                     </div>
 
