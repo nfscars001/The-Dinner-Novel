@@ -22,7 +22,7 @@ const placeholderStories: LoveStory[] = [
         city: 'Vancouver',
         title: 'The Coffee Shop Coincidence',
         story: "We met at the same coffee shop every morning for months without ever speaking. One day, the barista mixed up our orders. That mistake became the first chapter of our story.",
-        created_at: '2024-01-15',
+        created_at: '2025-04-15',
     },
     {
         id: '2',
@@ -31,7 +31,7 @@ const placeholderStories: LoveStory[] = [
         city: 'New York',
         title: 'Letters Across the Ocean',
         story: "Long distance was supposed to end us. Instead, we wrote letters—real ones, on paper. Three years and 200 letters later, the distance made us stronger than we ever imagined.",
-        created_at: '2024-02-20',
+        created_at: '2025-06-20',
     },
     {
         id: '3',
@@ -40,7 +40,7 @@ const placeholderStories: LoveStory[] = [
         city: 'Los Angeles',
         title: 'The Second Chance',
         story: "We divorced after five years. Ten years later, we found each other again at our daughter's wedding. Sometimes love needs time to grow up.",
-        created_at: '2024-03-10',
+        created_at: '2025-10-10',
     },
 ];
 
