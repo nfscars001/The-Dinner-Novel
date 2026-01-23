@@ -48,196 +48,17 @@
 }
 
 /* ===========================
-   Form
+   Typeform Container
    =========================== */
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    padding: var(--space-2xl);
+.formContainer {
     background: var(--fog-mist);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xl);
-}
-
-.row {
-    display: flex;
-    gap: var(--space-lg);
-    align-items: flex-end;
-}
-
-.field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    flex: 1;
-}
-
-.field label {
-    font-size: var(--text-sm);
-    font-weight: 500;
-    color: var(--text-secondary);
-}
-
-.field input,
-.field textarea {
-    background: var(--background-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
     padding: var(--space-md);
-    color: var(--text-primary);
-    font-size: var(--text-base);
-    transition: all var(--transition-fast);
-}
-
-.field input:focus,
-.field textarea:focus {
-    border-color: var(--warm-amber);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.15);
-}
-
-.field input:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.field textarea {
-    resize: vertical;
-    min-height: 160px;
-    line-height: 1.6;
-}
-
-.fieldHint {
-    font-size: var(--text-xs);
-    color: var(--text-muted);
-    font-style: italic;
-}
-
-/* ===========================
-   Character Counter
-   =========================== */
-.charCount {
-    display: flex;
-    justify-content: space-between;
-    font-size: var(--text-xs);
-    color: var(--text-muted);
-}
-
-.charCount .invalid {
-    color: var(--burgundy-wine);
-}
-
-.hint {
-    color: var(--warm-amber);
-}
-
-/* ===========================
-   Checkbox
-   =========================== */
-.checkboxField {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    cursor: pointer;
-}
-
-.checkboxField input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: var(--warm-amber);
-    cursor: pointer;
-}
-
-.checkboxField label {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
-    cursor: pointer;
-    margin: 0;
-}
-
-/* ===========================
-   Error
-   =========================== */
-.error {
-    padding: var(--space-md);
-    background: rgba(114, 47, 55, 0.2);
-    border: 1px solid var(--burgundy-wine);
-    border-radius: var(--radius-md);
-    color: var(--champagne-gold);
-    font-size: var(--text-sm);
-    text-align: center;
-}
-
-/* ===========================
-   Submit Button
-   =========================== */
-.submitBtn {
-    margin-top: var(--space-md);
-    width: 100%;
-}
-
-.submitBtn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none !important;
-}
-
-/* ===========================
-   Success Modal
-   =========================== */
-.successModal {
-    text-align: center;
-    padding: var(--space-lg);
-}
-
-.successIcon {
-    font-size: var(--text-4xl);
-    color: var(--warm-amber);
-    display: block;
-    margin-bottom: var(--space-md);
-}
-
-.successModal h3 {
-    font-family: var(--font-serif);
-    font-size: var(--text-2xl);
-    color: var(--champagne-gold);
-    margin-bottom: var(--space-md);
-}
-
-.successModal p {
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
-}
-
-.freebies {
-    background: var(--background-secondary);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--space-xl);
-    text-align: left;
-}
-
-.freebies h4 {
-    font-family: var(--font-accent);
-    font-size: var(--text-sm);
-    font-style: italic;
-    color: var(--warm-amber);
-    margin-bottom: var(--space-sm);
-}
-
-.freebies ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
-
-.freebies li {
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
+    min-height: 500px;
+    overflow: hidden;
 }
 
 /* ===========================
@@ -248,13 +69,8 @@
         padding: 0 var(--space-md);
     }
 
-    .form {
-        padding: var(--space-lg);
-    }
-
-    .row {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-md);
+    .formContainer {
+        padding: var(--space-sm);
+        min-height: 600px;
     }
 }
