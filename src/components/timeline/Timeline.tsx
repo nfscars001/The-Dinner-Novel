@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './Timeline.module.css';
 
 interface TimelineNode {
@@ -44,9 +44,36 @@ const timelineNodes: TimelineNode[] = [
 
 export default function Timeline() {
     const [activeNode, setActiveNode] = useState<string | null>(null);
+    const sectionRef = useRef<HTMLElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                // If section is mostly out of view (less than 10% visible), close the card
+                if (!entry.isIntersecting && entry.intersectionRatio < 0.1) {
+                    setActiveNode(null);
+                }
+            },
+            {
+                // Trigger when the section leaves the viewport
+                threshold: [0, 0.1, 0.5],
+                rootMargin: '100px 0px', // Add some buffer
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
 
     return (
-        <section className={styles.section}>
+        <section ref={sectionRef} className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
                     <span className={styles.preTitle}>A Journey Through Time</span>

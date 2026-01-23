@@ -291,10 +291,11 @@
 
     .timelineTrack {
         overflow-x: auto;
-        padding-bottom: var(--space-2xl);
-        gap: var(--space-lg);
+        padding-bottom: var(--space-4xl);
+        gap: 0;
         justify-content: flex-start;
         -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
         scrollbar-width: none;
     }
 
@@ -303,14 +304,23 @@
     }
 
     .nodeWrapper {
-        min-width: 80px;
+        min-width: 140px;
         flex: none;
+        scroll-snap-align: center;
+    }
+
+    .nodeLabelTitle {
+        font-size: var(--text-xs);
+        max-width: 100px;
     }
 
     .trackLine {
         left: 0;
         right: 0;
-        width: 400%;
+        width: calc(140px * 4);
+        /* Match node width * count */
+        min-width: 100%;
+        top: calc(var(--space-lg) + 100px + 16px + 12px);
     }
 
     .nodePanel {
@@ -326,6 +336,9 @@
         padding: var(--space-xl);
         max-height: 50vh;
         overflow-y: auto;
+        background: rgba(15, 23, 41, 0.98);
+        border-top: 1px solid var(--warm-amber);
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.6);
     }
 }
 
