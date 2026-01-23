@@ -3,6 +3,7 @@ import { Playfair_Display, Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import AudioPlayer from "@/components/ui/AudioPlayer";
 import BackToTop from "@/components/ui/BackToTop";
+import WelcomeModal from "@/components/ui/WelcomeModal";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -53,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>
+        <WelcomeModal />
         <AudioPlayer />
         <BackToTop />
         {children}

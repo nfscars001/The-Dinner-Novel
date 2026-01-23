@@ -1,0 +1,149 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-primary);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url('/images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px) brightness(0.4);
+    transform: scale(1.1);
+}
+
+.vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3xl);
+    text-align: center;
+    padding: var(--space-xl);
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    animation: fadeInDown 1.2s ease-out;
+}
+
+.subtitle {
+    font-family: var(--font-accent);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: var(--warm-amber);
+    opacity: 0.8;
+}
+
+.title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-style: italic;
+    color: var(--champagne-gold);
+    margin: 0;
+    text-shadow: 0 0 30px rgba(212, 165, 116, 0.3);
+}
+
+.enterButton {
+    position: relative;
+    background: transparent;
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    padding: var(--space-md) var(--space-2xl);
+    color: var(--champagne-gold);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    animation: fadeInUp 1.2s ease-out 0.4s backwards;
+    backdrop-filter: blur(10px);
+}
+
+.enterButton:hover {
+    border-color: var(--champagne-gold);
+    letter-spacing: 0.3em;
+    background: rgba(212, 165, 116, 0.05);
+}
+
+.buttonText {
+    position: relative;
+    z-index: 2;
+}
+
+.buttonGlow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.6s ease;
+}
+
+.enterButton:hover .buttonGlow {
+    transform: translate(-50%, -50%) scale(2);
+}
+
+.footer {
+    animation: fadeInUp 1.2s ease-out 0.8s backwards;
+}
+
+.footer p {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
