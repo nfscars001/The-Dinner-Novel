@@ -173,6 +173,8 @@
     letter-spacing: 0.1em;
     color: var(--text-muted);
     transition: color var(--transition-fast);
+    white-space: nowrap;
+    /* Prevent wrapping */
 }
 
 .nodeLabelTitle {
@@ -292,6 +294,8 @@
     .timelineTrack {
         overflow-x: auto;
         padding-bottom: var(--space-4xl);
+        padding-right: var(--space-xl);
+        /* Ensure last item isn't cut off */
         gap: 0;
         justify-content: flex-start;
         -webkit-overflow-scrolling: touch;
