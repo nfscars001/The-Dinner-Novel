@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -96,9 +97,9 @@ export default function Footer() {
                     </div>
 
                     <div className={styles.links}>
-                        <a href="/privacy" className={styles.link}>Privacy</a>
+                        <Link href="/privacy" className={styles.link}>Privacy</Link>
                         <span className={styles.linkDivider}>•</span>
-                        <a href="/terms" className={styles.link}>Terms</a>
+                        <Link href="/terms" className={styles.link}>Terms</Link>
                     </div>
                 </div>
 
