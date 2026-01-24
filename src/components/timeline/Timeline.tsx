@@ -43,37 +43,12 @@ const timelineNodes: TimelineNode[] = [
 ];
 
 export default function Timeline() {
-    const [activeNode, setActiveNode] = useState<string | null>(null);
-    const sectionRef = useRef<HTMLElement>(null);
+    const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                // If section is mostly out of view (less than 10% visible), close the card
-                if (!entry.isIntersecting && entry.intersectionRatio < 0.1) {
-                    setActiveNode(null);
-                }
-            },
-            {
-                // Trigger when the section leaves the viewport
-                threshold: [0, 0.1, 0.5],
-                rootMargin: '100px 0px', // Add some buffer
-            }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current);
-            }
-        };
-    }, []);
+    const activeNodeData = timelineNodes.find(n => n.year === activeNodeId);
 
     return (
-        <section ref={sectionRef} className={styles.section}>
+        <section className={styles.section}>
             <div className={styles.container}>
                 <div className={styles.header}>
                     <span className={styles.preTitle}>A Journey Through Time</span>
@@ -125,8 +100,8 @@ export default function Timeline() {
                     {timelineNodes.map((node) => (
                         <div
                             key={node.year}
-                            className={`${styles.nodeWrapper} ${activeNode === node.year ? styles.active : ''}`}
-                            onClick={() => setActiveNode(activeNode === node.year ? null : node.year)}
+                            className={`${styles.nodeWrapper} ${activeNodeId === node.year ? styles.active : ''}`}
+                            onClick={() => setActiveNodeId(activeNodeId === node.year ? null : node.year)}
                         >
                             <div className={styles.node}>
                                 <div className={styles.nodeLabel}>
@@ -137,19 +112,25 @@ export default function Timeline() {
                                     <div className={styles.nodeInner}></div>
                                 </div>
                             </div>
-
-                            {activeNode === node.year && (
-                                <div className={styles.nodePanel}>
-                                    <h4 className={styles.nodeTagline}>{node.tagline}</h4>
-                                    <p className={styles.nodeTeaser}>{node.teaser}</p>
-                                    <span className={styles.nodeLocation}>
-                                        {node.location === 'sf' && '📍 San Francisco'}
-                                        {node.location === 'toronto' && '📍 Toronto'}
-                                    </span>
-                                </div>
-                            )}
                         </div>
                     ))}
+                </div>
+
+                {/* Expandable Details Panel */}
+                <div className={`${styles.detailsPanel} ${activeNodeId ? styles.expanded : ''}`}>
+                    <div className={styles.detailsContent}>
+                        {activeNodeData && (
+                            <>
+                                <h4 className={styles.nodeTagline}>{activeNodeData.tagline}</h4>
+                                <p className={styles.nodeTeaser}>{activeNodeData.teaser}</p>
+                                <span className={styles.nodeLocation}>
+                                    {activeNodeData.location === 'sf' && '📍 San Francisco'}
+                                    {activeNodeData.location === 'toronto' && '📍 Toronto'}
+                                    {activeNodeData.location === 'between' && '📍 In Transit'}
+                                </span>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </section>
