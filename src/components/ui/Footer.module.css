@@ -223,6 +223,22 @@
     margin: 0;
 }
 
+.credit {
+    margin-top: var(--space-xs) !important;
+    opacity: 0.7;
+}
+
+.credit a {
+    color: var(--warm-amber);
+    text-decoration: underline;
+    text-decoration-thickness: 0.5px;
+    text-underline-offset: 2px;
+}
+
+.credit a:hover {
+    color: var(--champagne-gold);
+}
+
 /* ===========================
    Responsive
    =========================== */
