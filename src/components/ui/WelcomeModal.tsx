@@ -31,7 +31,7 @@ export default function WelcomeModal() {
         <div className={`${styles.overlay} ${isExiting ? styles.fadeOut : ''}`}>
             <div className={styles.content}>
                 <div className={styles.brand}>
-                    <span className={styles.subtitle}>A Romance Novel</span>
+                    <span className={styles.subtitle}>A romance novel based on the true stories</span>
                     <h1 className={styles.title}>The Dinner</h1>
                 </div>
 
