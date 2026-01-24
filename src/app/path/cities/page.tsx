@@ -145,6 +145,8 @@ function CitiesContent() {
                 isOpen={isShareOpen}
                 onClose={() => setIsShareOpen(false)}
                 title="Share The Journey"
+                quote={cards[0].quote}
+                artist="The City Between"
             />
         </div>
     );

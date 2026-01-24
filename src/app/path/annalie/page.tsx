@@ -147,6 +147,8 @@ function AnnalieContent() {
                 isOpen={isShareOpen}
                 onClose={() => setIsShareOpen(false)}
                 title="Share Annalie's Story"
+                quote={cards[0].quote}
+                artist="Annalie's Corner"
             />
         </div>
     );

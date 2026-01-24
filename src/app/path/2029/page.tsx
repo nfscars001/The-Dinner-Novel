@@ -158,6 +158,8 @@ function Content2029() {
                 isOpen={isShareOpen}
                 onClose={() => setIsShareOpen(false)}
                 title="Share 2029"
+                quote={cards[0].quote}
+                artist="Between Departures"
             />
 
             <audio
