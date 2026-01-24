@@ -142,6 +142,8 @@ function JasperContent() {
             <PostcardShareModal
                 isOpen={isShareOpen}
                 onClose={() => setIsShareOpen(false)}
+                quote={cards[0].quote}
+                artist="Jasper's Table"
             />
         </div>
     );
