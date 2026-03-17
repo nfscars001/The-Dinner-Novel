@@ -52,8 +52,41 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "The Dinner | A Romance Novel",
+        "url": "https://thedinnernovel.com",
+        "description": "A love story served between two cities. San Francisco to Toronto—where love changes its accent.",
+      },
+      {
+        "@type": "Book",
+        "name": "The Dinner",
+        "author": {
+          "@type": "Person",
+          "name": "The Dinner Author"
+        },
+        "genre": "Romance",
+        "description": "A love story served between two cities. San Francisco to Toronto—where love changes its accent.",
+        "inLanguage": "en",
+        "spatialCoverage": [
+          { "@type": "Place", "name": "San Francisco" },
+          { "@type": "Place", "name": "Toronto" }
+        ]
+      }
+    ]
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${playfair.variable} ${inter.variable} ${cormorant.variable}`}>
         <WelcomeModal />
         <AudioPlayer />
