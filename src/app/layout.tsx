@@ -4,6 +4,7 @@ import "./globals.css";
 import AudioPlayer from "@/components/ui/AudioPlayer";
 import BackToTop from "@/components/ui/BackToTop";
 import WelcomeModal from "@/components/ui/WelcomeModal";
+import { Analytics } from "@vercel/analytics/react";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -58,6 +59,7 @@ export default function RootLayout({
         <AudioPlayer />
         <BackToTop />
         {children}
+        <Analytics />
       </body>
     </html>
   );
