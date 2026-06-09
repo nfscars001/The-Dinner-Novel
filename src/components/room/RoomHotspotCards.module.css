@@ -1,0 +1,47 @@
+.guidedTour {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-2xl);
+}
+
+.tourCard {
+    background: rgba(15, 23, 41, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.tourCard:hover {
+    border-color: var(--champagne-gold);
+}
+
+.cardTitle {
+    font-family: var(--font-accent);
+    font-size: var(--text-xl);
+    color: var(--champagne-gold);
+    margin-bottom: var(--space-sm);
+}
+
+.cardTeaser {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

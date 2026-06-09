@@ -1,0 +1,55 @@
+.formContainer {
+    width: 100%;
+    color: var(--soft-cream);
+}
+
+.compact .formContainer {
+    max-width: 100%;
+}
+
+/* Mailchimp Form Overrides to match our site's theme */
+:global(#mc_embed_signup) {
+    background: transparent !important;
+    color: inherit !important;
+    font-family: var(--font-sans) !important;
+}
+
+:global(#mc_embed_signup input.email) {
+    background: var(--background-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-primary) !important;
+    padding: var(--space-md) !important;
+    font-size: var(--text-base) !important;
+    width: 100% !important;
+}
+
+:global(#mc_embed_signup .button) {
+    background: linear-gradient(135deg, var(--warm-amber), var(--warm-amber-glow)) !important;
+    color: var(--midnight-navy) !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-radius: var(--radius-full) !important;
+    padding: var(--space-md) var(--space-xl) !important;
+    height: auto !important;
+    width: auto !important;
+    margin-top: var(--space-md) !important;
+    transition: all var(--transition-base) !important;
+}
+
+:global(#mc_embed_signup .button:hover) {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-glow-strong) !important;
+}
+
+:global(#mc_embed_signup .asterisk) {
+    color: var(--accent-primary) !important;
+}
+
+:global(#mc_embed_signup label) {
+    font-weight: 500 !important;
+    margin-bottom: var(--space-xs) !important;
+    display: block !important;
+    color: var(--text-secondary) !important;
+}

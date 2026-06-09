@@ -1,5 +1,6 @@
 import Hero from '@/components/hero/Hero';
 import ChooseYourPath from '@/components/interactive/ChooseYourPath';
+import WalkTheRoom from '@/components/interactive/WalkTheRoom';
 import Timeline from '@/components/timeline/Timeline';
 import StoryForm from '@/components/submission/StoryForm';
 import CommunityWall from '@/components/community/CommunityWall';
@@ -10,6 +11,7 @@ export default function Home() {
         <main>
             <Hero />
             <ChooseYourPath />
+            <WalkTheRoom />
             <Timeline />
             <CommunityWall />
             <StoryForm />

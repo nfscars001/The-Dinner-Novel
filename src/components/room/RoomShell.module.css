@@ -1,0 +1,297 @@
+.main {
+    min-height: 100vh;
+    padding-top: var(--space-4xl);
+    background: radial-gradient(circle at center, var(--background-secondary) 0%, var(--background-primary) 100%);
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+}
+
+.welcomeBanner {
+    background: linear-gradient(90deg, var(--burgundy-wine), var(--burgundy-deep));
+    color: var(--champagne-gold);
+    padding: var(--space-sm) var(--space-md);
+    text-align: center;
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-size: var(--text-sm);
+    letter-spacing: 0.1em;
+    width: 100%;
+    z-index: 100;
+}
+
+.header {
+    text-align: center;
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.microSubtitle {
+    font-family: var(--font-accent);
+    font-style: italic;
+    color: var(--warm-amber);
+    font-size: var(--text-lg);
+    margin-top: var(--space-sm);
+    opacity: 0.9;
+}
+
+
+.backLink {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: var(--space-md);
+    display: inline-block;
+    transition: color var(--transition-fast);
+}
+
+.backLink:hover {
+    color: var(--warm-amber);
+}
+
+.title {
+    font-size: var(--text-5xl);
+    color: var(--champagne-gold);
+    margin-bottom: var(--space-xs);
+    letter-spacing: 0.02em;
+}
+
+.subtitle {
+    font-family: var(--font-accent);
+    font-size: var(--text-lg);
+    font-style: italic;
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+.mobileToggle {
+    display: none;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.toggleBtn {
+    padding: var(--space-sm) var(--space-xl);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all var(--transition-base);
+}
+
+.toggleBtn.active {
+    background: var(--fog-mist-light);
+    color: var(--warm-amber);
+    border-color: var(--warm-amber);
+}
+
+.content {
+    flex: 1;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-md) var(--space-lg);
+
+}
+
+@media (max-width: 768px) {
+    .mobileToggle {
+        display: flex;
+    }
+    
+    .title {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* Modal Styling */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 41, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: var(--z-modal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+    animation: fadeIn var(--transition-base);
+}
+
+.modalContent {
+    background: var(--midnight-navy-light);
+    border: 1px solid var(--border-glow);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    box-shadow: var(--shadow-glow-strong);
+    text-align: center;
+    animation: fadeInUp var(--transition-base);
+}
+
+.closeBtn {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: var(--text-xl);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.closeBtn:hover {
+    color: var(--warm-amber);
+}
+
+.modalTitle {
+    font-size: var(--text-3xl);
+    color: var(--champagne-gold);
+    margin-bottom: var(--space-sm);
+    font-family: var(--font-serif);
+}
+
+.modalTeaser {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+    font-size: var(--text-base);
+}
+
+.pathLinks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+.newsletterModal {
+    width: 100%;
+    margin-top: var(--space-md);
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.roomCtas {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 0;
+
+}
+
+.modalActions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+.bottomSheet {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 20px 20px 0 0;
+    padding: var(--space-xl);
+    background: #0a0f1d;
+}
+
+.sheetControls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.sheetControls button {
+    background: transparent;
+    border: none;
+    color: var(--champagne-gold);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.modalDivider {
+    text-align: center;
+    margin: var(--space-md) 0;
+    color: var(--text-muted);
+    font-family: var(--font-accent);
+    font-style: italic;
+    position: relative;
+}
+
+.modalDivider::before,
+.modalDivider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: var(--border-subtle);
+}
+
+.modalDivider::before { left: 0; }
+.modalDivider::after { right: 0; }
+
+@media (max-width: 480px) {
+    .pathLinks {
+        grid-template-columns: 1fr;
+    }
+}
+
+.modalImagePlaceholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed var(--border-subtle);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+}
+
+.placeholderIcon {
+    font-size: var(--text-3xl);
+    color: var(--champagne-gold);
+    opacity: 0.5;
+}
+
+.spotifyEmbed {
+    width: 100%;
+    margin-bottom: var(--space-xl);
+}
+

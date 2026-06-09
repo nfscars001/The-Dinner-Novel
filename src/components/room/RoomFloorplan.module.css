@@ -1,0 +1,73 @@
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    aspect-ratio: 1000 / 750;
+    background: rgba(15, 23, 41, 0.3);
+    border: 1px solid rgba(212, 165, 116, 0.15);
+    border-radius: var(--radius-xl);
+    box-shadow: 
+        inset 0 0 100px rgba(0, 0, 0, 0.6),
+        0 30px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.floorplan {
+    width: 100%;
+    height: 100%;
+}
+
+.svgLayer {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hotspotGroup {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.hotspotGroup:hover .core {
+    transform: scale(1.2);
+    fill: var(--text-primary);
+}
+
+.core {
+    fill: var(--champagne-gold);
+    transition: all var(--transition-base);
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.activeCore {
+    fill: var(--warm-amber);
+    r: 10;
+}
+
+.pulse {
+    fill: var(--warm-amber);
+    opacity: 0;
+    pointer-events: none;
+    animation: hotSpotPulse 3s infinite ease-out;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+.priorityPulse {
+    fill: var(--burgundy-wine);
+    animation: hotSpotPulse 1.5s infinite ease-out;
+    opacity: 0.5;
+}
+
+@keyframes hotSpotPulse {
+    0% { transform: scale(0.2); opacity: 0.8; transform-origin: center; }
+    100% { transform: scale(3); opacity: 0; transform-origin: center; }
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: none;
+    }
+}

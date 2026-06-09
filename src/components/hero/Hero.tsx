@@ -32,7 +32,7 @@ function HeroContent() {
                             A love story served between two cities.
                         </p>
                         <p className={styles.releaseDate}>
-                            Coming in 2026 May
+                            NOW ON AMAZON WORLDWIDE
                         </p>
                     </div>
 
