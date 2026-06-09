@@ -107,9 +107,6 @@ export default function JasperGallery() {
                                         <p key={i}>{line}</p>
                                     ))}
                                 </div>
-                                <Link href={`/path/jasper`} className={`btn-secondary ${styles.relatedLink}`}>
-                                    Related Milestone →
-                                </Link>
                             </div>
                         </div>
                     </div>
