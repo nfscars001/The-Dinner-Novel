@@ -136,7 +136,7 @@ export const ROOM_PLAN_DATA: Record<RoomPlanKey, RoomPlanData> = {
             },
             {
                 id: 'starry_night',
-                title: 'Starry Night — Upper Wall',
+                title: 'Starry Serenade — Upper Wall',
                 teaser: '“Swirls of cobalt and the first spark of inspiration. The work that taught him how to see the dark.”',
                 cta: 'View Artifact',
                 href: '#',

@@ -12,12 +12,12 @@ interface RoomFloorplanProps {
     isLaGloria?: boolean;
 }
 
-export default function RoomFloorplan({ 
+export default function RoomFloorplan({
     planId,
-    hotspots, 
-    onHotspotClick, 
+    hotspots,
+    onHotspotClick,
     activeHotspotId,
-    isLaGloria 
+    isLaGloria
 }: RoomFloorplanProps) {
     const renderPlanDecorations = () => {
         switch (planId) {
@@ -84,7 +84,7 @@ export default function RoomFloorplan({
                         <g transform="translate(180, 50)">
                             <rect width="140" height="90" fill="none" stroke="rgba(212, 165, 116, 0.4)" strokeWidth="1.5" />
                             <rect x="8" y="8" width="124" height="74" fill="none" stroke="rgba(212, 165, 116, 0.2)" strokeWidth="1" />
-                            <text x="70" y="110" fill="rgba(212, 165, 116, 0.5)" fontSize="12" textAnchor="middle" fontFamily="var(--font-accent)">Starry Night</text>
+                            <text x="70" y="110" fill="rgba(212, 165, 116, 0.5)" fontSize="12" textAnchor="middle" fontFamily="var(--font-accent)">Starry Serenade</text>
                         </g>
                         <g transform="translate(810, 50)">
                             <rect width="140" height="90" fill="none" stroke="rgba(212, 165, 116, 0.4)" strokeWidth="1.5" />
@@ -173,31 +173,31 @@ export default function RoomFloorplan({
                 <svg className={styles.svgLayer} width="100%" height="100%" viewBox="0 0 1000 750" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <pattern id="floor-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(212, 165, 116, 0.15)" strokeWidth="1"/>
+                            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(212, 165, 116, 0.15)" strokeWidth="1" />
                         </pattern>
                         <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
                             <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
+                                <feMergeNode in="coloredBlur" />
+                                <feMergeNode in="SourceGraphic" />
                             </feMerge>
                         </filter>
                     </defs>
-                    
+
                     {/* Background Grid */}
                     <rect width="1000" height="750" fill="url(#floor-grid)" />
-                    
+
                     {/* Outer Boundary */}
                     <rect x="25" y="25" width="950" height="700" fill="none" stroke="rgba(212, 165, 116, 0.15)" strokeWidth="1" strokeDasharray="10,5" />
-                    
+
                     {/* Room Specific Decorations */}
                     {renderPlanDecorations()}
 
                     {/* Hotspots - Interaction layer */}
                     {hotspots.map((spot) => (
-                        <g 
-                            key={spot.id} 
-                            className={styles.hotspotGroup} 
+                        <g
+                            key={spot.id}
+                            className={styles.hotspotGroup}
                             onClick={(e) => {
                                 e.stopPropagation();
                                 onHotspotClick(spot.id);
@@ -205,28 +205,28 @@ export default function RoomFloorplan({
                             style={{ cursor: 'pointer', pointerEvents: 'all' }}
                         >
                             {/* Larger invisible hit area */}
-                            <circle 
-                                cx={(spot.x ?? 0) * 10} 
-                                cy={(spot.y ?? 0) * 7.5} 
-                                r="50" 
-                                fill="white" 
-                                fillOpacity="0" 
+                            <circle
+                                cx={(spot.x ?? 0) * 10}
+                                cy={(spot.y ?? 0) * 7.5}
+                                r="50"
+                                fill="white"
+                                fillOpacity="0"
                                 style={{ pointerEvents: 'all' }}
                             />
-                            
+
                             {/* Pulse Effect */}
-                            <circle 
-                                cx={(spot.x ?? 0) * 10} 
-                                cy={(spot.y ?? 0) * 7.5} 
-                                r="20" 
-                                className={`${styles.pulse} ${isLaGloria && spot.id === 'back-hallway' ? styles.priorityPulse : ''}`} 
+                            <circle
+                                cx={(spot.x ?? 0) * 10}
+                                cy={(spot.y ?? 0) * 7.5}
+                                r="20"
+                                className={`${styles.pulse} ${isLaGloria && spot.id === 'back-hallway' ? styles.priorityPulse : ''}`}
                             />
-                            
+
                             {/* Core Dot */}
-                            <circle 
-                                cx={(spot.x ?? 0) * 10} 
-                                cy={(spot.y ?? 0) * 7.5} 
-                                r="8" 
+                            <circle
+                                cx={(spot.x ?? 0) * 10}
+                                cy={(spot.y ?? 0) * 7.5}
+                                r="8"
                                 className={`${styles.core} ${activeHotspotId === spot.id ? styles.activeCore : ''}`}
                                 filter="url(#glow)"
                             />

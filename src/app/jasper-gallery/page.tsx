@@ -4,14 +4,16 @@ import { useState } from 'react';
 import Link from 'next/link';
 import styles from './gallery.module.css';
 
-// Mock Data
+// Gallery Artworks
 const artworks = [
-    { id: '1', title: 'The First Sketch', year: '2020', mood: 'Hope', src: 'https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?auto=format&fit=crop&q=80&w=800', desc: 'A quick line drawing on a napkin.\nThe shape of a smile that lingered too long.\nThe first time he realized he was looking closely.' },
-    { id: '2', title: 'City Silhouettes', year: '2023', mood: 'Fracture', src: 'https://images.unsplash.com/photo-1510255551988-e214fc047b30?auto=format&fit=crop&q=80&w=800', desc: 'Tall buildings leaning inward.\nThe feeling of being surrounded but completely alone.\nPainted in sharp, unforgiving blues.' },
-    { id: '3', title: 'Coffee at Midnight', year: '2024', mood: 'Spark', src: 'https://images.unsplash.com/photo-1510221389814-1e5828a2a578?auto=format&fit=crop&q=80&w=800', desc: 'Warm ambient lighting.\nTwo cups, one empty, one untouched.\nA conversation that changed everything.' },
-    { id: '4', title: 'The Empty Chair', year: '2023', mood: 'Fracture', src: 'https://images.unsplash.com/photo-1574169208507-84376144848b?auto=format&fit=crop&q=80&w=800', desc: 'A study in absence.\nThe hardest thing to paint is what isn\'t there.' },
-    { id: '5', title: 'Window Rain', year: '2029', mood: 'Return', src: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=800', desc: 'Water droplets distorting the streetlights.\nThe realization that home isn\'t a place anymore.' },
-    { id: '6', title: 'Morning Light', year: '2029', mood: 'Hope', src: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&q=80&w=800', desc: 'Soft yellows breaking through the grey.\nBreathing feels easier today.' },
+    { id: '1', title: 'The Dinner Chapter 1 by Wei In Sight', year: '2019', mood: 'Hope', src: '/images/jasper_gallery/Chapter_1_2019.jpg', desc: 'The first evening.\nA table set for strangers who would not remain so.\nThe beginning of everything.' },
+    { id: '2', title: 'The Dinner Chapter 2 by Wei In Sight', year: '2019', mood: 'Spark', src: '/images/jasper_gallery/Chapter_2_2019.jpg', desc: 'Candlelight catching on glass.\nWords beginning to form between silences.\nSomething shifting in the room.' },
+    { id: '3', title: 'The Dinner Chapter 3 by Wei In Sight', year: '2019', mood: 'Fracture', src: '/images/jasper_gallery/Chapter_3_2019.jpg', desc: 'The moment where honesty arrived uninvited.\nA pause that lasted longer than it should.\nThe cost of being seen.' },
+    { id: '4', title: 'The Dinner Chapter 4 by Wei In Sight', year: '2019', mood: 'Fracture', src: '/images/jasper_gallery/Chapter_4_2019.jpg', desc: 'After the quiet argument.\nChairs slightly misaligned.\nThe weight of what was left unsaid.' },
+    { id: '5', title: 'The Dinner Chapter 5 by Wei In Sight', year: '2019', mood: 'Return', src: '/images/jasper_gallery/Chapter_5_2019.jpg', desc: 'Coming back to the same table.\nDifferent eyes, different hands.\nThe same hunger for something real.' },
+    { id: '6', title: 'The Dinner Chapter 6 by Wei In Sight', year: '2019', mood: 'Hope', src: '/images/jasper_gallery/Chapter_6_2019.jpg', desc: 'The last plate cleared.\nLaughter at the end of something hard.\nThe proof that it was worth it.' },
+    { id: '7', title: 'Starry Serenade by Natalie Melnyk', year: '2024', mood: 'Hope', src: '/images/jasper_gallery/Starry_Serenade_2024.jpeg', desc: 'Cobalt skies and spinning constellations.\nA song played without an instrument.\nThe night that taught him how to listen.' },
+    { id: '8', title: 'Sweet Dreams by Natalie Melnyk', year: '2025', mood: 'Return', src: '/images/jasper_gallery/Sweet_Dreams_2025.jpeg', desc: 'The final exhale of a long series.\nPeace, completed and hanging where he can always reach it.\nA rest that was earned.' },
 ];
 
 export default function JasperGallery() {
@@ -42,10 +44,9 @@ export default function JasperGallery() {
                         <label>Filter by Year:</label>
                         <select value={filterYear} onChange={e => setFilterYear(e.target.value)} className={styles.select}>
                             <option value="All">All Years</option>
-                            <option value="2020">2020</option>
-                            <option value="2023">2023</option>
+                            <option value="2019">2019</option>
                             <option value="2024">2024</option>
-                            <option value="2029">2029</option>
+                            <option value="2025">2025</option>
                         </select>
                     </div>
                     <div className={styles.filterGroup}>
