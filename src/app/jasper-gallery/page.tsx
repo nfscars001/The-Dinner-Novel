@@ -35,23 +35,6 @@ export default function JasperGallery() {
                 <p className={styles.subtitle}>Where words ran out, paint continued.</p>
             </header>
 
-            {/* Featured Row */}
-            <section className={styles.featuredSection}>
-                <h2 className={styles.sectionTitle}>Featured Pieces</h2>
-                <div className={styles.featuredRow}>
-                    {artworks.slice(0, 3).map(art => (
-                        <div key={`feat-${art.id}`} className={styles.featuredCard} onClick={() => setActiveArt(art)}>
-                            <div className={styles.imageOverlay}></div>
-                            <img src={art.src} alt={art.title} className={styles.featuredImage} />
-                            <div className={styles.featuredInfo}>
-                                <h3>{art.title}</h3>
-                                <span>{art.year}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
             {/* Filters */}
             <section className={styles.gallerySection}>
                 <div className={styles.filtersWrapper}>
