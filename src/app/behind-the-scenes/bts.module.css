@@ -54,170 +54,41 @@
     background: rgba(212, 165, 116, 0.05);
 }
 
-/* Albums Grid */
-.albumsGrid {
-    max-width: 1200px;
+/* Coming Soon */
+.comingSoon {
+    max-width: 800px;
     margin: 0 auto var(--space-4xl);
-    padding: var(--space-xl);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-2xl);
-}
-
-.albumCard {
-    cursor: pointer;
+    padding: var(--space-2xl) var(--space-xl);
     text-align: center;
-}
-
-.imageWrapper {
-    position: relative;
-    aspect-ratio: 1;
-    overflow: hidden;
+    border: 1px dashed var(--border-subtle);
     border-radius: var(--radius-xl);
-    margin-bottom: var(--space-lg);
-    box-shadow: var(--shadow-md);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(15, 23, 41, 0.4);
 }
 
-.albumCover {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-slow);
-    filter: sepia(30%) hue-rotate(-10deg) saturate(80%);
-}
-
-.albumOverlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(15, 23, 41, 0.6);
+.comingSoonInner {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity var(--transition-base);
+    gap: var(--space-lg);
 }
 
-.albumOverlay span {
-    color: var(--champagne-gold);
-    border: 1px solid var(--champagne-gold);
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: var(--radius-full);
-    font-family: var(--font-sans);
-    text-transform: uppercase;
-    font-size: var(--text-xs);
-    letter-spacing: 0.1em;
+.comingSoonIcon {
+    font-size: 3rem;
+    opacity: 0.5;
 }
 
-.albumCard:hover .albumCover {
-    transform: scale(1.05);
-    filter: none;
-}
-
-.albumCard:hover .albumOverlay {
-    opacity: 1;
-}
-
-.albumTitle {
+.comingSoonTitle {
     font-family: var(--font-serif);
     font-size: var(--text-2xl);
     color: var(--champagne-gold);
 }
 
-/* Carousel Modal */
-.modalOverlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(15, 23, 41, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: var(--z-modal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-xl);
-    animation: fadeIn 0.3s ease-out;
-}
-
-.carouselContainer {
-    width: 100%;
-    max-width: 1200px;
-    height: 85vh;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.closeBtn {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    font-size: var(--text-2xl);
-    color: var(--text-muted);
-}
-
-.closeBtn:hover {
-    color: var(--text-primary);
-}
-
-.carouselCenter {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-}
-
-.carouselImage {
-    max-width: 80%;
-    max-height: 100%;
-    object-fit: contain;
-    margin: 0 auto;
-    box-shadow: 0 0 50px rgba(0,0,0,0.8);
-    border: 1px solid var(--border-glow);
-}
-
-.navBtn {
-    font-size: 4rem;
-    color: var(--text-muted);
-    transition: color var(--transition-fast);
-    padding: var(--space-md);
-}
-
-.navBtn:hover {
-    color: var(--warm-amber);
-}
-
-.carouselFooter {
-    text-align: center;
-    padding-top: var(--space-xl);
-}
-
-.modalTitle {
-    font-family: var(--font-accent);
-    font-size: var(--text-2xl);
-    color: var(--champagne-gold);
-    font-style: italic;
-    margin-bottom: var(--space-md);
-}
-
-.dots {
-    display: flex;
-    gap: var(--space-sm);
-    justify-content: center;
-}
-
-.dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(212, 165, 116, 0.3);
-    transition: background var(--transition-fast);
-}
-
-.dot.activeDot {
-    background: var(--warm-amber);
+.comingSoonText {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 500px;
 }
 
 /* CTA Block */
@@ -238,13 +109,6 @@
     gap: var(--space-md);
 }
 
-@media (max-width: 1024px) {
-    .albumsGrid { grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 768px) {
-    .albumsGrid { grid-template-columns: 1fr; }
-    .navBtn { font-size: 2rem; padding: var(--space-xs); }
-    .carouselImage { max-width: 100%; }
     .ctaActions { flex-direction: column; }
 }
